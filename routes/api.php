@@ -27,4 +27,24 @@ Route::namespace('Api')->name('api.')->group(function(){
 		Route::delete('/{id}', 'ProductController@delete')->name('delete_products');
 
 	});
+
+	Route::prefix('/temperatures')->group(function(){
+		
+		Route::get('/', 'TemperatureController@index')->name('index_temperatures');
+		Route::get('/{id}', 'TemperatureController@show')->name('single_temperatures');
+		Route::post('/', 'TemperatureController@store')->name('store_temperatures');
+		Route::put('/{id}', 'TemperatureController@update')->name('update_temperatures');
+		Route::delete('/{id}', 'TemperatureController@delete')->name('delete_temperatures');
+
+	});
+	Route::prefix('/luminosities')->group(function(){
+		
+		Route::get('/', 'LuminosityController@index')->name('index_luminosities');
+		Route::get('/{id}', 'LuminosityController@show')->name('single_luminosities');
+		Route::post('/', 'LuminosityController@store')->name('store_luminosities');
+		Route::put('/{id}', 'LuminosityController@update')->name('update_luminosities');
+		Route::delete('/{id}', 'LuminosityController@delete')->name('delete_luminosities');
+
+	});
+	
 });
